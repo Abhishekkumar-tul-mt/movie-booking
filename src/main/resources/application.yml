@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: movie-ticket-booking
+  datasource:
+    url: jdbc:h2:mem:moviedb;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=10000
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+app:
+  timezone: Asia/Kolkata
+  seed-demo-data: true
+  scheduling:
+    enabled: true
+  admin:
+    email: admin@movie.com
+    password: Admin@123
+  hold:
+    duration-minutes: 5          # how long a seat hold lasts before it auto-releases
+    sweep-interval-ms: 10000     # how often the expiry sweeper runs
+  booking:
+    max-seats-per-booking: 6
+  reminder:
+    lead-minutes: 120            # send reminder this long before the show
+    scan-interval-ms: 60000

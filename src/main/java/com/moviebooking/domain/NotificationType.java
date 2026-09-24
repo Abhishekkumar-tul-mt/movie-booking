@@ -1,0 +1,3 @@
+package com.moviebooking.domain;
+
+public enum NotificationType { BOOKING_CONFIRMATION, BOOKING_CANCELLATION, REFUND_PROCESSED, SHOW_REMINDER, HOLD_EXPIRED, SHOW_CANCELLED }
